@@ -1,0 +1,24 @@
+.flightitem{
+    
+  display: flex;
+  justify-content: center;
+}
+.flightContainer{
+    width: 100%;
+  max-width: 1024px;
+  border: 2px solid #9b7306;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bookButton{
+    margin-left: 20px;
+  border: none;
+  font-size: large;
+  padding: 5px 10px;
+  color:white;
+  cursor: pointer;
+  background-color: #003580;
+}

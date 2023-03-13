@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+  justify-content: center;
+  
+}
+.item{
+    width: 100%;
+    max-width: 1024px;
+    border: 2px solid;
+    margin: 10px;
+    padding: 10px;
+    
+
+    
+}
+.confirmButton{
+    margin-left: 20px;
+  border: none;
+  font-size: large;
+  padding: 5px 10px;
+  color:white;
+  cursor: pointer;
+  background-color: #003580;
+  float: right;
+}
+.backButton{
+    
+    border: none;
+    font-size: large;
+    padding: 5px 10px;
+    color:white;
+    cursor: pointer;
+    background-color: #003580;
+    
+}
