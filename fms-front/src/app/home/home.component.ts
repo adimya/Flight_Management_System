@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Flight } from '../flight.model';
 import { FlightService } from '../flights.service';
 
 @Component({
@@ -10,11 +11,13 @@ import { FlightService } from '../flights.service';
 })
 export class HomeComponent implements OnInit{
   searchText:string='';
-  flights:{id:number,name:string,whereTo:string,
-  price:number,
-  seats:number}[]=[];
+  flights:Flight[]=[];
   constructor(private flightService:FlightService){}
- ngOnInit(): void {
-   this.flights=this.flightService.flights;
+ ngOnInit(){
+  this.flightService.getFlights().subscribe(flight=>{
+
+    this.flights=flight;
+    
+  })
  }
 }

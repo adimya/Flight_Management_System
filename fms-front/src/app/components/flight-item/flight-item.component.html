@@ -1,15 +1,18 @@
-
-
-<div class="flightitem" *ngIf="searchT===''||flight.whereTo.toLowerCase().includes(searchT)">
-<div class="flightContainer">
-
-    <h2>{{flight.name}}</h2> 
-    <h2>{{"Where To: " + flight.whereTo}}</h2>
-    <h2>{{"Seats left: "+flight.seats}}</h2>
-    <h2>{{"price: "+flight.price}}</h2>
-    <button class="bookButton" routerLink="/home/{{flight.id}}" 
-    >Book</button>
-</div>
-    
-
+<div
+  class="flightitem"
+  *ngIf="searchT === '' || flight.toLoc.toLowerCase().includes(searchT)"
+>
+  <div class="flightContainer">
+    <h2>{{ flight.title }}</h2>
+    <h2>{{ "Where To: " + flight.toLoc }}</h2>
+    <h2>{{ "Seats left: " + flight.seats }}</h2>
+    <h2>{{ "price: " + flight.ticketPrice }}</h2>
+    <button
+      class="bookButton"
+      routerLink="/home/{{ flight.id }}"
+      [disabled]="flight.seats < 1"
+    >
+      Book
+    </button>
+  </div>
 </div>

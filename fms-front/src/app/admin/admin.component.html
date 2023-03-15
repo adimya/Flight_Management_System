@@ -1,0 +1,44 @@
+<form #postForm="ngForm" (ngSubmit)="onAddFlight(postForm.value)" >
+    <div class="form">
+      <label for="id">Flight ID:</label>
+      <input type="number" required ngModel name="id" /><br>
+
+      <label for="fromLoc">From Location</label>
+      <input type="text" required ngModel name="fromLoc" /><br>
+
+      <label for="toLoc">To Location</label>
+      <input type="text" required ngModel name="toLoc" /><br>
+
+      <label for="title">Name of the Flight</label>
+      <input type="text" required ngModel name="title" /><br>
+
+      <label for="isFull">is it Full??(true or false)</label>
+      <input type="text" required ngModel name="isFull" /><br>
+
+      <label for="seats">No. of seats Available</label>
+      <input type="number" required ngModel name="seats" /><br>
+
+      <label for="description">Description</label>
+      <input type="text" required ngModel name="description" /><br>
+
+      <label for="companyName">Company Name:</label>
+      <input type="text" required ngModel name="companyName" /><br>
+
+      <label for="takeOffTime">Take off time</label>
+      <input type="text" required ngModel name="takeOffTime" /><br>
+
+      <label for="landingTime">Landing Time</label>
+      <input type="text" required ngModel name="landingTime" /><br>
+
+      <label for="ticketPrice">Ticket Price:</label>
+      <input type="text" required ngModel name="ticketPrice" /><br>
+
+    </div>
+    
+    <button
+      type="submit"
+      [disabled]="!postForm.valid"
+    >
+      Send Post
+    </button>
+  </form>

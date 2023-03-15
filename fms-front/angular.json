@@ -58,12 +58,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          
           "configurations": {
             "production": {
               "browserTarget": "fms-front:build:production"
             },
             "development": {
               "browserTarget": "fms-front:build:development"
+              
             }
           },
           "defaultConfiguration": "development"

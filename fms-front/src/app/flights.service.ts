@@ -1,82 +1,32 @@
-export class FlightService{
-    flights=[
-        {
-            id:1,
-            name:'flight 1',
-            whereTo:'lucknow',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:2,
-            name:'flight 2',
-            whereTo:'delhi',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:3,
-            name:'flight 3',
-            whereTo:'agra',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:4,
-            name:'flight 4',
-            whereTo:'delhi',
-            price:2000,
-            seats:30,
-        },
-        {
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Flight } from './flight.model';
+@Injectable({ providedIn: 'root' })
+export class FlightService {
+  constructor(private http: HttpClient) {}
+  getFlights() {
+    return this.http
+      .get<{ [key: string]: Flight }>('http://localhost:8080/flights')
+      .pipe(
+        map((responseData) => {
+          const flightArray: Flight[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              flightArray.push({ ...responseData[key] });
+            }
+          }
+          var finalFlightArray = Object.values(flightArray['0']);
+          return finalFlightArray;
+        })
+      );
+  }
 
-            id:5,
-            name:'flight 5',
-            whereTo:'lucknow',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:6,
-            name:'flight 6',
-            whereTo:'agra',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:7,
-            name:'flight 7',
-            whereTo:'lucknow',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:8,
-            name:'flight 8',
-            whereTo:'delhi',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:9,
-            name:'flight 9',
-            whereTo:'lucknow',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:10,
-            name:'flight 10',
-            whereTo:'lagra',
-            price:2000,
-            seats:30,
-        },
-        {
-            id:11,
-            name:'flight 11',
-            whereTo:'lucknow',
-            price:2000,
-            seats:30,
-        },
-    ]
+  deletesSeats(flightData: Flight) {
+    return this.http
+      .put('http://localhost:8080/update', flightData)
+      .subscribe((resdata) => {
+        console.log(resdata);
+      });
+  }
 }

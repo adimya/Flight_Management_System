@@ -54,6 +54,10 @@ public class ArticleController {
     
     @Inject
     ArticleDao articleDao;
+    
+    
+    
+    
 
     ///////////////////////////////////////////////////////////////////////////
     // Show article

@@ -1,25 +1,49 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Flight } from 'src/app/flight.model';
 import { FlightService } from 'src/app/flights.service';
 
 @Component({
   selector: 'app-flight-details',
   templateUrl: './flight-details.component.html',
-  styleUrls: ['./flight-details.component.css']
+  styleUrls: ['./flight-details.component.css'],
 })
-export class FlightDetailsComponent implements OnInit{
-  flightId: number=0;
-  flights:{id:number,name:string,whereTo:string,
-    price:number,
-    seats:number}[]=[];
-    constructor(private flightService:FlightService,private route:ActivatedRoute){}
-   ngOnInit(): void {
-     this.flights=this.flightService.flights;
-     this.flightId=this.route.snapshot.params['id']-1;
-   }
-   bookingConfirm():void{
-    this.flights[this.flightId].seats--;
-    console.log(this.flights[this.flightId].seats);
-   }
-  
+export class FlightDetailsComponent implements OnInit {
+  flightId: number = 0;
+  flights: Flight[] = [];
+  constructor(
+    private flightService: FlightService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.fetchData();
+  }
+  fetchData() {
+    this.flightService.getFlights().subscribe((flight) => {
+      this.flightId = this.route.snapshot.params['id'];
+
+      this.flights = flight.filter((x) => x.id == this.flightId);
+      console.log(this.flights);
+    });
+  }
+  deleteSeats() {
+    this.flightService.deletesSeats({
+      id: this.flightId,
+
+      fromLoc: this.flights[0].fromLoc,
+      toLoc: this.flights[0].fromLoc,
+      title: this.flights[0].fromLoc,
+      isFull: this.flights[0].isFull,
+      seats: this.flights[0].seats - 1,
+      description: this.flights[0].description,
+      companyName: this.flights[0].companyName,
+      takeOffTime: this.flights[0].takeOffTime,
+      landingTime: this.flights[0].landingTime,
+      ticketPrice: this.flights[0].ticketPrice,
+    });
+
+    console.log(this.flights[0].seats - 1);
+    console.log(this.flights[0].id);
+  }
 }

@@ -33,16 +33,23 @@
 package conf;
 
 import ninja.AssetsController;
+
+//import ninja.AssetsController;
 import ninja.Router;
+
 import ninja.application.ApplicationRoutes;
 import ninja.utils.NinjaProperties;
 
 import com.google.inject.Inject;
 
+import controllers.FlightController;
 import controllers.ApiController;
 import controllers.ApplicationController;
 import controllers.ArticleController;
+import controllers.CorsHeaderController;
 import controllers.LoginLogoutController;
+
+
 
 public class Routes implements ApplicationRoutes {
     
@@ -59,12 +66,15 @@ public class Routes implements ApplicationRoutes {
      *            The default router of this application
      */
     @Override
-    public void init(Router router) {  
+    public void init(Router router)  {  
         
+    	
         // puts test data into db:
         if (!ninjaProperties.isProd()) {
             router.GET().route("/setup").with(ApplicationController::setup);
         }
+        
+        
         
         ///////////////////////////////////////////////////////////////////////
         // Login / Logout
@@ -74,12 +84,23 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/logout").with(LoginLogoutController::logout);
         
         ///////////////////////////////////////////////////////////////////////
+       
+       
+        
         // Create new article
         ///////////////////////////////////////////////////////////////////////
         router.GET().route("/article/new").with(ArticleController::articleNew);
         router.POST().route("/article/new").with(ArticleController::articleNewPost);
         
-        ///////////////////////////////////////////////////////////////////////
+        //for flights
+        router.OPTIONS().route("/.*").with(CorsHeaderController::routeForOp);
+//        router.OPTIONS().route("/flight/new").with(CorsHeaderController::routeForOp);
+        router.POST().route("/flight/new").with(FlightController::addNewFlight);
+        router.GET().route("/flights").with(FlightController::allFlights);
+        router.DELETE().route("/delete/{id}").with(FlightController::deleteFlight);
+        router.PUT().route("/update").with(FlightController::updateFlight);
+
+        /////////////////////////////////////////////////////////////////////
         // Create new article
         ///////////////////////////////////////////////////////////////////////
         router.GET().route("/article/{id}").with(ArticleController::articleShow);

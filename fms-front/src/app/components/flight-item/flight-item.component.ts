@@ -1,4 +1,5 @@
 import { Component ,Input} from '@angular/core';
+import { Flight } from 'src/app/flight.model';
 
 @Component({
   selector: 'app-flight-item',
@@ -7,16 +8,18 @@ import { Component ,Input} from '@angular/core';
 })
 export class FlightItemComponent {
   
-  @Input() flight: {
-    id:number,
-    name:string,whereTo:string,
-    price:number,
-    seats:number}=
-    {id:0,
-    name:'flight 0',
-    whereTo:'lucknow',
-    price:2000,
-    seats:30};
+  @Input() flight: Flight=
+    {
+      fromLoc:"",
+     toLoc:"",
+     title:"",
+    isFull:false,
+    seats:0,
+    description:"",
+    companyName:"",
+    takeOffTime:"",
+    landingTime:"",
+  ticketPrice:0};
   @Input() idd: number=0;
   @Input() searchT:string='';
 }

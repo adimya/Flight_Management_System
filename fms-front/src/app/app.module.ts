@@ -9,6 +9,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FlightItemComponent } from './components/flight-item/flight-item.component';
 import { FlightDetailsComponent } from './components/flight-details/flight-details.component';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component'
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NavbarComponent,
     FlightItemComponent,
-    FlightDetailsComponent
+    FlightDetailsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
