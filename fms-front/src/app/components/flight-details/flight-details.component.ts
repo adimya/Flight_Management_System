@@ -34,7 +34,7 @@ export class FlightDetailsComponent implements OnInit {
     this.flightService.deletesSeats({
       id: this.flightId,
       fromLoc: this.flights[0].fromLoc,
-      toLoc: this.flights[0].fromLoc,
+      toLoc: this.flights[0].toLoc,
       title: this.flights[0].title,
       isFull: this.flights[0].isFull,
       seats: this.flights[0].seats - 1,

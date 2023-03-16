@@ -36,7 +36,7 @@ export class BookingService implements OnInit {
     this.flightService.deletesSeats({
       id: flight.id,
       fromLoc: flight.fromLoc,
-      toLoc: flight.fromLoc,
+      toLoc: flight.toLoc,
       title: flight.title,
       isFull: flight.isFull,
       seats: flight.seats + 1,

@@ -5,10 +5,12 @@
   border: none;
   padding: 10px;
   cursor: pointer;
+  margin-right: 15px;
 }
 .headerSearchInput {
   border: none;
   outline: none;
+  margin-left: 10px;
 }
 
 .headerSearch {
@@ -16,9 +18,9 @@
   background-color: white;
   border: 3px solid #febb02;
   display: flex;
-  margin-top: -25px;
+  
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 10px 0px;
   border-radius: 5px;
   margin-top:25px;
