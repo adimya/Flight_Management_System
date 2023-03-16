@@ -5,37 +5,26 @@
     <button class="confirmButton" (click)="deleteSeats()">
       Confirm Booking
     </button>
-
-    <h1>{{ flights[0].title }}</h1>
-    <h1>Where To: {{ flights[0].toLoc }}</h1>
-    <h1>Price:{{ flights[0].ticketPrice }}</h1>
-    <h1>Available Seats: {{ flights[0].seats }}</h1>
-    <h1></h1>
-    <h3>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum magnam
-      esse quos nisi delectus ex expedita, magni est aliquid explicabo sequi,
-      inventore assumenda a et tenetur quia autem. Ea, Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Sit veritatis aliquid, voluptatum nisi
-      corporis consequatur vel optio maiores ratione quod consequuntur corrupti.
-      Doloremque totam laborum asperiores excepturi, dolorum nemo consectetur.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum magnam
-      esse quos nisi delectus ex expedita, magni est aliquid explicabo sequi,
-      inventore assumenda a et tenetur quia autem. Ea, Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Sit veritatis aliquid, voluptatum nisi
-      corporis consequatur vel optio maiores ratione quod consequuntur corrupti.
-      Doloremque totam laborum asperiores excepturi, dolorum nemo consectetur.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum magnam
-      esse quos nisi delectus ex expedita, magni est aliquid explicabo sequi,
-      inventore assumenda a et tenetur quia autem. Ea, Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Sit veritatis aliquid, voluptatum nisi
-      corporis consequatur vel optio maiores ratione quod consequuntur corrupti.
-      Doloremque totam laborum asperiores excepturi, dolorum nemo consectetur.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum magnam
-      esse quos nisi delectus ex expedita, magni est aliquid explicabo sequi,
-      inventore assumenda a et tenetur quia autem. Ea, Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Sit veritatis aliquid, voluptatum nisi
-      corporis consequatur vel optio maiores ratione quod consequuntur corrupti.
-      Doloremque totam laborum asperiores excepturi, dolorum nemo consectetur.
-    </h3>
+    <div class="displayflex">
+      <div>
+        <h1>{{ flights[0].title }}</h1>
+        <h1>From Where: {{ flights[0].fromLoc }}</h1>
+        <h1>Departure Time:{{ flights[0].takeOffTime }}</h1>
+        <h1>Available Seats: {{ flights[0].seats }}</h1>
+      </div>
+      <div>
+        <h1>Company:{{ flights[0].companyName }}</h1>
+        <h1>Where To: {{ flights[0].toLoc }}</h1>
+        <h1>Landing Time:{{ flights[0].landingTime }}</h1>
+        <h1>Price: {{ flights[0].ticketPrice }}Rs</h1>
+      </div>
+    </div>
+    <h2>Company Description:</h2>
+    <h4>
+      {{ flights[0].description }}
+    </h4>
+    <button class="confirmButton" (click)="deleteSeats()">
+      Confirm Booking
+    </button>
   </div>
 </div>

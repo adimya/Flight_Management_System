@@ -55,6 +55,7 @@ public class FlightDao {
 		List<Flight> flights=query.getResultList();
 		FlightsDto flightsDto = new FlightsDto();
 		flightsDto.flights=flights;
+		log.info(flights);
 		return flightsDto;
 		
 		        
@@ -81,6 +82,7 @@ public class FlightDao {
 
 		query.executeUpdate();
 		if(updatedFlight!=null) {
+			log.info(updatedFlight);
 			return true;
 		}
 		return false;

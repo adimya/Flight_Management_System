@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="Bookingitem" *ngFor="let flight of flights">
+  <div class="BookingContainer">
+    <h2>{{ flight.title }}</h2>
+    <h2>{{ "Where To: " + flight.toLoc }}</h2>
+    <h2>{{ "Seats left: " + flight.seats }}</h2>
+    <h2>{{ "price: " + flight.ticketPrice }}</h2>
+    <button
+      class="bookButton"
+      *ngIf="flight.id !== undefined"
+      (click)="deleteBooking(flight)"
+    >
+      Delete
+    </button>
+  </div>
+</div>

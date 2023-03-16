@@ -23,10 +23,6 @@ export class FlightService {
   }
 
   deletesSeats(flightData: Flight) {
-    return this.http
-      .put('http://localhost:8080/update', flightData)
-      .subscribe((resdata) => {
-        console.log(resdata);
-      });
+    this.http.put('http://localhost:8080/update', flightData).subscribe();
   }
 }

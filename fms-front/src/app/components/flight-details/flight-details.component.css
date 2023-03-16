@@ -1,6 +1,7 @@
 .container{
     display: flex;
   justify-content: center;
+  margin-top: 5px;;
   
 }
 .item{
@@ -12,6 +13,10 @@
     
 
     
+}
+.displayflex{
+  display: flex;
+  justify-content: space-between;
 }
 .confirmButton{
     margin-left: 20px;

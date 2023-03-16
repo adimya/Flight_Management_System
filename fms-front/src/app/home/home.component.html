@@ -1,32 +1,23 @@
 <app-navbar></app-navbar>
-<div style="display: flex;justify-content: center;">
-<div class="headerSearch">
+<div style="display: flex; justify-content: center; margin-top: -50px">
+  <div class="headerSearch">
     <div class="headerSearchItem">
-      
       <input
         type="text"
         placeholder="Where are you going?"
         class="headerSearchInput"
         [(ngModel)]="searchText"
       />
-      
     </div>
-    
 
     <div class="headerSearchItem">
-      <button class="headerBtn" >
-        Search
-      </button>
+      <button class="headerBtn">Search</button>
     </div>
   </div>
-
-
-
 </div>
 <app-flight-item
-*ngFor="let f of flights;let i=index"
-[flight]="f"
-[idd]="i"
-[searchT]="searchText"
+  *ngFor="let f of flights; let i = index"
+  [flight]="f"
+  [idd]="i"
+  [searchT]="searchText"
 ></app-flight-item>
-

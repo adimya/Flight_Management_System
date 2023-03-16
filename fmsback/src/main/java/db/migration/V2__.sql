@@ -1,5 +1,5 @@
 create table Flight(
-    id bigint not null,
+    id bigint not null unique,
 	fromLoc varchar(255),
 	toLoc varchar(255),
 	title varchar(255),
@@ -11,4 +11,9 @@ create table Flight(
 	landingTime time,
 	ticketPrice int,
 	primary key (id)
+);
+
+create table Booking(
+id int,
+primary key(id)
 );

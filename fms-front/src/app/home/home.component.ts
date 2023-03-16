@@ -1,4 +1,5 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BookingService } from '../booking.service';
 import { Flight } from '../flight.model';
 import { FlightService } from '../flights.service';
 
@@ -6,18 +7,17 @@ import { FlightService } from '../flights.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  
-  
 })
-export class HomeComponent implements OnInit{
-  searchText:string='';
-  flights:Flight[]=[];
-  constructor(private flightService:FlightService){}
- ngOnInit(){
-  this.flightService.getFlights().subscribe(flight=>{
-
-    this.flights=flight;
-    
-  })
- }
+export class HomeComponent implements OnInit {
+  searchText: string = '';
+  flights: Flight[] = [];
+  constructor(
+    private flightService: FlightService,
+    private bookingService: BookingService
+  ) {}
+  ngOnInit() {
+    this.flightService.getFlights().subscribe((flight) => {
+      this.flights = flight;
+    });
+  }
 }

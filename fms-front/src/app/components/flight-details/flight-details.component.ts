@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BookingService } from 'src/app/booking.service';
 import { Flight } from 'src/app/flight.model';
 import { FlightService } from 'src/app/flights.service';
 
@@ -13,7 +14,8 @@ export class FlightDetailsComponent implements OnInit {
   flights: Flight[] = [];
   constructor(
     private flightService: FlightService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private bookingService: BookingService
   ) {}
 
   ngOnInit() {
@@ -28,12 +30,12 @@ export class FlightDetailsComponent implements OnInit {
     });
   }
   deleteSeats() {
+    this.bookingService.addBooking({ id: this.flightId });
     this.flightService.deletesSeats({
       id: this.flightId,
-
       fromLoc: this.flights[0].fromLoc,
       toLoc: this.flights[0].fromLoc,
-      title: this.flights[0].fromLoc,
+      title: this.flights[0].title,
       isFull: this.flights[0].isFull,
       seats: this.flights[0].seats - 1,
       description: this.flights[0].description,
@@ -42,7 +44,6 @@ export class FlightDetailsComponent implements OnInit {
       landingTime: this.flights[0].landingTime,
       ticketPrice: this.flights[0].ticketPrice,
     });
-
     console.log(this.flights[0].seats - 1);
     console.log(this.flights[0].id);
   }

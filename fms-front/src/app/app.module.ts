@@ -10,7 +10,8 @@ import { FlightItemComponent } from './components/flight-item/flight-item.compon
 import { FlightDetailsComponent } from './components/flight-details/flight-details.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { AdminComponent } from './admin/admin.component'
+import { AdminComponent } from './admin/admin.component';
+import { BookingsComponent } from './bookings/bookings.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AdminComponent } from './admin/admin.component'
     NavbarComponent,
     FlightItemComponent,
     FlightDetailsComponent,
-    AdminComponent
+    AdminComponent,
+    BookingsComponent
   ],
   imports: [
     BrowserModule,

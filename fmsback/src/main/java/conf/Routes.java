@@ -46,6 +46,7 @@ import controllers.FlightController;
 import controllers.ApiController;
 import controllers.ApplicationController;
 import controllers.ArticleController;
+import controllers.BookinngController;
 import controllers.CorsHeaderController;
 import controllers.LoginLogoutController;
 
@@ -99,6 +100,13 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/flights").with(FlightController::allFlights);
         router.DELETE().route("/delete/{id}").with(FlightController::deleteFlight);
         router.PUT().route("/update").with(FlightController::updateFlight);
+        
+        
+//        for booking
+        router.POST().route("/booking/add").with(BookinngController::addNewBooking);
+        router.GET().route("/bookings").with(BookinngController::allBooking);
+        router.DELETE().route("/bookdelete/{id}").with(BookinngController::deleteBooking);
+        
 
         /////////////////////////////////////////////////////////////////////
         // Create new article
