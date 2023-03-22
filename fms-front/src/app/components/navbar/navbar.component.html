@@ -7,6 +7,12 @@
       </h1>
     </span>
     <div class="navItems">
+      <span *ngIf="userName !== ''"
+        >Hi,
+        {{
+          " " + userName.charAt(0).toUpperCase() + userName.substring(1)
+        }}</span
+      >
       <button
         class="navButton"
         routerLink="/bookPage"

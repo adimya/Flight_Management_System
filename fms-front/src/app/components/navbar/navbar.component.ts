@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BookingService } from 'src/app/booking.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +9,13 @@ import { BookingService } from 'src/app/booking.service';
 })
 export class NavbarComponent implements OnInit {
   noOfBookings = 7;
-  constructor(private bookingService: BookingService) {}
+  userName = '';
+  constructor(
+    private bookingService: BookingService,
+    private userService: UserService
+  ) {}
   ngOnInit() {
     this.noOfBookings = this.bookingService.bookingLength();
+    this.userName = this.userService.user.username;
   }
 }
