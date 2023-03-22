@@ -33,16 +33,26 @@
 
 package dao;
 
+
+import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import models.User;
+import org.apache.commons.logging.Log;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+import models.User;
+import models.UserDto;
+import models.UsersDto;
 import ninja.jpa.UnitOfWork;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.persist.Transactional;
+
+import controllers.FlightController;
 
 
 public class UserDao {
@@ -50,6 +60,57 @@ public class UserDao {
     @Inject
     Provider<EntityManager> entityManagerProvider;
     
+    private static Logger log = LogManager.getLogger(FlightController.class);
+    
+    public UsersDto displayAllUsers() {
+		EntityManager entityManager=entityManagerProvider.get();
+		TypedQuery<User> query=entityManager.createQuery("SELECT x FROM User x",User.class);
+		List<User> users=query.getResultList();
+		UsersDto usersDto = new UsersDto();
+		usersDto.users=users;
+		
+		return usersDto;
+		
+		        
+	}
+    
+    @Transactional
+	public boolean addNewUser(UserDto userDto) {
+		EntityManager entityManager = entityManagerProvider.get();
+//		System.out.println(userDto.fullname);
+//		System.out.println(userDto.bookedId);
+//		for(int i=0;i<userDto.bookedId.length;i++) {
+//			System.out.println(userDto.bookedId[i]);
+//		}
+//		int arr[]=userDto.bookedId;
+//		System.out.print(arr);
+		User user = new User();
+		
+		user.setAdmin(userDto.isAdmin);
+		user.setUsername(userDto.username);
+		user.setBookedId(userDto.bookedId);
+		user.setPassword(userDto.password);
+		user.setFullname(userDto.fullname);
+		System.out.print(user);
+		entityManager.persist(user);
+		
+		return true;
+
+	}
+    
+    @Transactional
+	public boolean deleteUser(BigInteger id) {
+		try {
+		EntityManager entityManager = entityManagerProvider.get();
+		User user = entityManager.find(User.class, id);
+		entityManager.remove(user);	
+		return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
     @UnitOfWork
     public boolean isUserAndPasswordValid(String username, String password) {
         
@@ -88,5 +149,7 @@ public class UserDao {
 
         return list.get(0);
     }
+    
+    
 
 }

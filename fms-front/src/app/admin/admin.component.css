@@ -6,3 +6,9 @@ form{
 input{
     margin-bottom: 10px;
 }
+.done{
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+   
+}

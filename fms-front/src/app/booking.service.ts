@@ -6,6 +6,7 @@ import { Flight } from './flight.model';
 import { FlightService } from './flights.service';
 @Injectable({ providedIn: 'root' })
 export class BookingService implements OnInit {
+  lenght = 0;
   ngOnInit(): void {}
   constructor(private http: HttpClient, private flightService: FlightService) {}
   getBooking() {
@@ -19,7 +20,7 @@ export class BookingService implements OnInit {
               bookArray.push({ ...responseData[key] });
             }
           }
-
+          this.lenght = Object.keys(bookArray['0']).length;
           var finalbookArray = Object.values(bookArray['0']);
           console.log(finalbookArray);
           return finalbookArray;
@@ -60,5 +61,8 @@ export class BookingService implements OnInit {
       .subscribe((responseData) => {
         console.log(responseData);
       });
+  }
+  bookingLength() {
+    return this.lenght;
   }
 }

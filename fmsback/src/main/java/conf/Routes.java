@@ -49,6 +49,7 @@ import controllers.ArticleController;
 import controllers.BookinngController;
 import controllers.CorsHeaderController;
 import controllers.LoginLogoutController;
+import controllers.UserController;
 
 
 
@@ -80,9 +81,9 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////
         // Login / Logout
         ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/login").with(LoginLogoutController::login);
-        router.POST().route("/login").with(LoginLogoutController::loginPost);
-        router.GET().route("/logout").with(LoginLogoutController::logout);
+//        router.GET().route("/login").with(LoginLogoutController::login);
+//        router.POST().route("/login").with(LoginLogoutController::loginPost);
+//        router.GET().route("/logout").with(LoginLogoutController::logout);
         
         ///////////////////////////////////////////////////////////////////////
        
@@ -90,8 +91,8 @@ public class Routes implements ApplicationRoutes {
         
         // Create new article
         ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/article/new").with(ArticleController::articleNew);
-        router.POST().route("/article/new").with(ArticleController::articleNewPost);
+//        router.GET().route("/article/new").with(ArticleController::articleNew);
+//        router.POST().route("/article/new").with(ArticleController::articleNewPost);
         
         //for flights
         router.OPTIONS().route("/.*").with(CorsHeaderController::routeForOp);
@@ -107,26 +108,31 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/bookings").with(BookinngController::allBooking);
         router.DELETE().route("/bookdelete/{id}").with(BookinngController::deleteBooking);
         
+//        for users
+        router.GET().route("/users").with(UserController::allUsers);
+        router.POST().route("/user/new").with(UserController::addUser);
+        router.DELETE().route("/userdelete/{id}").with(UserController::deleteUser);
+        
 
-        /////////////////////////////////////////////////////////////////////
+        ///////////////////////////////r.//////////////////////////////////////
         // Create new article
         ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/article/{id}").with(ArticleController::articleShow);
+//        router.GET().route("/article/{id}").with(ArticleController::articleShow);
 
         ///////////////////////////////////////////////////////////////////////
         // Api for management of software
-        ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/api/{username}/articles.json").with(ApiController::getArticlesJson);
-        router.GET().route("/api/{username}/article/{id}.json").with(ApiController::getArticleJson);
-        router.GET().route("/api/{username}/articles.xml").with(ApiController::getArticlesXml);
-        router.POST().route("/api/{username}/article.json").with(ApiController::postArticleJson);
-        router.POST().route("/api/{username}/article.xml").with(ApiController::postArticleXml);
- 
-        ///////////////////////////////////////////////////////////////////////
-        // Assets (pictures / javascript)
-        ///////////////////////////////////////////////////////////////////////    
-        router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController::serveWebJars);
-        router.GET().route("/assets/{fileName: .*}").with(AssetsController::serveStatic);
+//        ///////////////////////////////////////////////////////////////////////
+//        router.GET().route("/api/{username}/articles.json").with(ApiController::getArticlesJson);
+//        router.GET().route("/api/{username}/article/{id}.json").with(ApiController::getArticleJson);
+//        router.GET().route("/api/{username}/articles.xml").with(ApiController::getArticlesXml);
+//        router.POST().route("/api/{username}/article.json").with(ApiController::postArticleJson);
+//        router.POST().route("/api/{username}/article.xml").with(ApiController::postArticleXml);
+// 
+//        ///////////////////////////////////////////////////////////////////////
+//        // Assets (pictures / javascript)
+//        ///////////////////////////////////////////////////////////////////////    
+//        router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController::serveWebJars);
+//        router.GET().route("/assets/{fileName: .*}").with(AssetsController::serveStatic);
         
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page

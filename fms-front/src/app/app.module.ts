@@ -9,9 +9,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FlightItemComponent } from './components/flight-item/flight-item.component';
 import { FlightDetailsComponent } from './components/flight-details/flight-details.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
-import { BookingsComponent } from './bookings/bookings.component'
+import { BookingsComponent } from './bookings/bookings.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,17 @@ import { BookingsComponent } from './bookings/bookings.component'
     FlightItemComponent,
     FlightDetailsComponent,
     AdminComponent,
-    BookingsComponent
+    BookingsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

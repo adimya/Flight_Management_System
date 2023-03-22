@@ -18,7 +18,7 @@ create table "user" (
     isAdmin boolean not null,
     password varchar(255),
     username varchar(255),
-    bookedId int array,
+    bookedId varchar(1000),
     primary key (id)
 );
 

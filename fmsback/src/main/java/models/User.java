@@ -16,6 +16,8 @@
 
 package models;
 
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,9 +33,10 @@ public class User {
     @Column(name="id")
 	@SequenceGenerator(name="seq-gen",sequenceName="MY_SEQ_GEN", initialValue=205, allocationSize=12)
 	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="seq-gen")
-    public Long id;
+    public BigInteger id;
     
-    @Column(name="username")
+
+	@Column(name="username")
     public String username;
     
     @Column(name="password")
@@ -45,12 +48,58 @@ public class User {
     @Column(name="isAdmin")
     public boolean isAdmin;
     
+    @Column(name="bookedId")
+    public String bookedId;
+    
+    public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	public String getBookedId() {
+		return bookedId;
+	}
+
+	public void setBookedId(String bookedId) {
+		this.bookedId = bookedId;
+	}
+
     public User() {}
     
-    public User(String username, String password, String fullname) {
+    public User(String username, String password, String fullname,String bookedId,boolean isAdmin) {
+    	super();
         this.username = username;
         this.password = password;
         this.fullname = fullname;
+        this.bookedId=bookedId;
+        this.isAdmin=isAdmin;
     }
  
 }

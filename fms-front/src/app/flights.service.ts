@@ -25,4 +25,14 @@ export class FlightService {
   deletesSeats(flightData: Flight) {
     this.http.put('http://localhost:8080/update', flightData).subscribe();
   }
+
+  deleteFlight(flightdelte: { id: number }) {
+    console.log(flightdelte.id);
+    this.http
+      .delete(`http://localhost:8080/delete/${flightdelte.id}`)
+      .subscribe();
+  }
+  updateFlight(flightData: Flight) {
+    this.http.put('http://localhost:8080/update', flightData).subscribe();
+  }
 }

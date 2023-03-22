@@ -12,6 +12,7 @@ import { FlightService } from '../flights.service';
 export class BookingsComponent implements OnInit {
   flights: Flight[] = [];
   booking: Booking[] = [];
+  bookLength = 0;
 
   constructor(
     private flightService: FlightService,
