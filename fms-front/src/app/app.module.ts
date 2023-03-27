@@ -14,6 +14,7 @@ import { AdminComponent } from './admin/admin.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { UserItemComponent } from './components/user-item/user-item.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MaterialModule } from './material/material.module';
     FlightDetailsComponent,
     AdminComponent,
     BookingsComponent,
+    UserItemComponent,
   ],
   imports: [
     BrowserModule,

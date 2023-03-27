@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Time } from '@angular/common';
 import { FlightService } from '../flights.service';
 import { Flight } from '../flight.model';
+import { AuthService } from '../auth.service';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +14,13 @@ import { Flight } from '../flight.model';
 export class AdminComponent implements OnInit {
   flights: Flight[] = [];
   isFetched: boolean = false;
-  constructor(private http: HttpClient, private flightService: FlightService) {}
+  users: User[] = [];
+  isUserFetched: boolean = false;
+  constructor(
+    private http: HttpClient,
+    private flightService: FlightService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {}
 
@@ -55,5 +63,22 @@ export class AdminComponent implements OnInit {
   clearAllFlights() {
     this.flights = [];
     this.isFetched = false;
+  }
+  onAddUser(user: { username: string; password: string; fullname: string }) {
+    this.authService.addNewUser(user);
+  }
+  onDeleteUser(userd: { id: number }) {
+    console.log(userd.id);
+    this.authService.deleteUser(userd);
+  }
+  getAllUsers() {
+    this.authService.getAllUser().subscribe((user) => {
+      this.users = user;
+      this.isUserFetched = true;
+    });
+  }
+  clearAllUsers() {
+    this.users = [];
+    this.isUserFetched = false;
   }
 }

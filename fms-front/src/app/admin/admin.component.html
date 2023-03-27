@@ -292,9 +292,100 @@
   </mat-tab>
   <mat-tab label="User Data">
     <mat-tab-group>
-      <mat-tab label="Add User"></mat-tab>
-      <mat-tab label="Delete User"></mat-tab>
-      <mat-tab label="Get Users Data"></mat-tab>
+      <mat-tab label="Add User">
+        <form #userForm="ngForm" (ngSubmit)="onAddUser(userForm.value)">
+          <div class="form">
+            <mat-form-field appearance="outline" class="done">
+              <mat-label>Username</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                ngModel
+                name="username"
+              /> </mat-form-field
+            ><br />
+            <mat-form-field appearance="outline" class="done">
+              <mat-label>FullName</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                ngModel
+                name="fullname"
+              /> </mat-form-field
+            ><br />
+
+            <mat-form-field appearance="outline" class="done">
+              <mat-label>password</mat-label>
+              <input
+                type="password"
+                matInput
+                required
+                ngModel
+                name="password"
+              /><br />
+            </mat-form-field>
+          </div>
+          <br />
+          <button
+            type="submit"
+            [disabled]="!userForm.valid"
+            mat-raised-button
+            color="primary"
+          >
+            Add User
+          </button>
+        </form>
+      </mat-tab>
+      <mat-tab label="Delete User">
+        <form #deluForm="ngForm" (ngSubmit)="onDeleteUser(deluForm.value)">
+          <div>
+            <mat-form-field appearance="outline" class="done">
+              <mat-label>User ID</mat-label>
+              <input matInput type="number" required ngModel name="id" />
+            </mat-form-field>
+
+            <br />
+            <br />
+            <button
+              type="submit"
+              [disabled]="!deluForm.valid"
+              mat-raised-button
+              color="primary"
+            >
+              Delete User
+            </button>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Get Users Data">
+        <app-user-item
+          *ngFor="let f of users; let i = index"
+          [user]="f"
+        ></app-user-item>
+        <form>
+          <button
+            type="button"
+            (click)="getAllUsers()"
+            mat-raised-button
+            color="primary"
+            style="margin-top: 10px"
+          >
+            All User
+          </button>
+          <button
+            type="button"
+            (click)="clearAllUsers()"
+            mat-raised-button
+            color="primary"
+            style="margin-top: 10px; margin-left: 10px"
+            [disabled]="!isUserFetched"
+          >
+            Clear Data
+          </button>
+        </form>
+      </mat-tab>
     </mat-tab-group>
   </mat-tab>
 </mat-tab-group>

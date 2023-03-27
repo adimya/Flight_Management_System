@@ -37,5 +37,10 @@ export class AuthService {
       );
   }
 
-  deleteUser() {}
+  deleteUser(userdelte: { id: number }) {
+    console.log(userdelte.id);
+    this.http
+      .delete(`http://localhost:8080/userdelete/${userdelte.id}`)
+      .subscribe();
+  }
 }
