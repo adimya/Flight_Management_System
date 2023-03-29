@@ -4,6 +4,11 @@
 >
   <div class="flightContainer">
     <div>
+      <img
+        src="https://seeklogo.com/images/I/indigo-logo-EDBB4B3C09-seeklogo.com.png"
+      />
+    </div>
+    <div>
       <h2>{{ flight.title }}</h2>
       <h2>{{ "From Where: " + flight.fromLoc }}</h2>
       <h2>{{ "TakeOff at: " + flight.takeOffTime }}</h2>
@@ -19,8 +24,27 @@
         class="bookButton"
         routerLink="/home/{{ flight.id }}"
         [disabled]="flight.seats < 1"
+        mat-raised-button
+        color="primary"
+        *ngIf="!route"
       >
         Book
+      </button>
+      <button
+        class="bookButton"
+        mat-raised-button
+        color="primary"
+        *ngIf="route"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        class="bookButton"
+        mat-raised-button
+        color="primary"
+        *ngIf="route"
+      >
+        <mat-icon>delete</mat-icon>
       </button>
       <h2>{{ "Seats left: " + flight.seats }}</h2>
       <h2>{{ "price: " + flight.ticketPrice }}</h2>

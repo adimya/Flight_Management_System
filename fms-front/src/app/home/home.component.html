@@ -1,23 +1,33 @@
-<app-navbar></app-navbar>
-<div style="display: flex; justify-content: center; margin-top: -50px">
-  <div class="headerSearch">
-    <div class="headerSearchItem">
-      <input
-        type="text"
-        placeholder="Where are you going?"
-        class="headerSearchInput"
-        [(ngModel)]="searchText"
-      />
-    </div>
+<body>
+  <app-navbar></app-navbar>
+  <!-- <img
+    src="assets/islandview.jpg"
+    alt="500"
+    style="border: 1px solid; position: fixed"
+    width="100%"
+  /> -->
+  <div style="display: flex; justify-content: center; margin-top: -50px">
+    <div class="headerSearch">
+      <div class="headerSearchItem">
+        <input
+          type="text"
+          placeholder="Where are you going?"
+          class="headerSearchInput"
+          [(ngModel)]="searchText"
+        />
+      </div>
 
-    <div class="headerSearchItem">
-      <button class="headerBtn">Search</button>
+      <div class="headerSearchItem">
+        <button class="headerBtn" mat-raised-button color="primary">
+          Search
+        </button>
+      </div>
     </div>
   </div>
-</div>
-<app-flight-item
-  *ngFor="let f of flights; let i = index"
-  [flight]="f"
-  [idd]="i"
-  [searchT]="searchText"
-></app-flight-item>
+  <app-flight-item
+    *ngFor="let f of flights; let i = index"
+    [flight]="f"
+    [idd]="i"
+    [searchT]="searchText"
+  ></app-flight-item>
+</body>

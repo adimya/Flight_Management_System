@@ -1,391 +1,413 @@
-<mat-tab-group>
-  <mat-tab label="Flight Data">
-    <mat-tab-group>
-      <mat-tab label="Add Flight">
-        <form #postForm="ngForm" (ngSubmit)="onAddFlight(postForm.value)">
-          <div class="form">
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Flight ID</mat-label>
-              <input matInput type="number" required ngModel name="id" />
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>From Location</mat-label>
-              <input
-                matInput
-                type="text"
-                required
-                ngModel
-                name="fromLoc"
-              /> </mat-form-field
-            ><br />
+<body>
+  <mat-tab-group class="main">
+    <mat-tab label="Flight Data">
+      <mat-tab-group>
+        <mat-tab label="Add Flight">
+          <form #postForm="ngForm" (ngSubmit)="onAddFlight(postForm.value)">
+            <div class="form">
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Flight ID</mat-label>
+                <input matInput type="number" required ngModel name="id" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>From Location</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  required
+                  ngModel
+                  name="fromLoc"
+                /> </mat-form-field
+              ><br />
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>To Location</mat-label>
-              <input type="text" matInput required ngModel name="toLoc" /><br />
-            </mat-form-field>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>To Location</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="toLoc"
+                /><br />
+              </mat-form-field>
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Name of the Flight</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="title"
-              /><br /> </mat-form-field
-            ><br />
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Name of the Flight</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="title"
+                /><br /> </mat-form-field
+              ><br />
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>is it Full??</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="isFull"
-              /><br />
-            </mat-form-field>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>is it Full??</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="isFull"
+                /><br />
+              </mat-form-field>
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Seats Available</mat-label>
-              <input
-                type="number"
-                matInput
-                required
-                ngModel
-                name="seats"
-              /><br /> </mat-form-field
-            ><br />
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Seats Available</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  required
+                  ngModel
+                  name="seats"
+                /><br /> </mat-form-field
+              ><br />
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Description</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="description"
-              /><br />
-            </mat-form-field>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Description</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="description"
+                /><br />
+              </mat-form-field>
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Company Name</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="companyName"
-              /><br /> </mat-form-field
-            ><br />
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Company Name</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="companyName"
+                /><br /> </mat-form-field
+              ><br />
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Take Off Time</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="takeOffTime"
-              /><br />
-            </mat-form-field>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Take Off Time</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="takeOffTime"
+                /><br />
+              </mat-form-field>
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Landing Time</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="landingTime"
-              /><br /> </mat-form-field
-            ><br />
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Landing Time</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="landingTime"
+                /><br /> </mat-form-field
+              ><br />
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Ticket Price</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="ticketPrice"
-              /><br /> </mat-form-field
-            ><br />
-          </div>
-          <br />
-          <button
-            type="submit"
-            [disabled]="!postForm.valid"
-            mat-raised-button
-            color="primary"
-          >
-            Add Flight
-          </button>
-        </form>
-      </mat-tab>
-      <mat-tab label="Update Flight">
-        <form #postForm="ngForm" (ngSubmit)="onUpdateFlight(postForm.value)">
-          <div class="form">
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Flight ID</mat-label>
-              <input matInput type="number" required ngModel name="id" />
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>From Location</mat-label>
-              <input
-                matInput
-                type="text"
-                required
-                ngModel
-                name="fromLoc"
-              /> </mat-form-field
-            ><br />
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>To Location</mat-label>
-              <input type="text" matInput required ngModel name="toLoc" /><br />
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Name of the Flight</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="title"
-              /><br /> </mat-form-field
-            ><br />
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>is it Full??</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="isFull"
-              /><br />
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Seats Available</mat-label>
-              <input
-                type="number"
-                matInput
-                required
-                ngModel
-                name="seats"
-              /><br /> </mat-form-field
-            ><br />
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Description</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="description"
-              /><br />
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Company Name</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="companyName"
-              /><br /> </mat-form-field
-            ><br />
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Take Off Time</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="takeOffTime"
-              /><br />
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Landing Time</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="landingTime"
-              /><br /> </mat-form-field
-            ><br />
-
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Ticket Price</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                ngModel
-                name="ticketPrice"
-              /><br /> </mat-form-field
-            ><br />
-          </div>
-          <br />
-          <button type="submit" mat-raised-button color="primary">
-            Update Data
-          </button>
-        </form>
-      </mat-tab>
-      <mat-tab label="Delete Flight">
-        <form #posForm="ngForm" (ngSubmit)="onDeleteFlight(posForm.value)">
-          <div>
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Flight ID</mat-label>
-              <input matInput type="number" required ngModel name="id" />
-            </mat-form-field>
-
-            <br />
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Ticket Price</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="ticketPrice"
+                /><br /> </mat-form-field
+              ><br />
+            </div>
             <br />
             <button
               type="submit"
-              [disabled]="!posForm.valid"
+              [disabled]="!postForm.valid"
               mat-raised-button
               color="primary"
             >
-              Delete Flight
+              Add Flight
             </button>
-          </div>
-        </form>
-      </mat-tab>
-      <mat-tab label="Get ALL Flights">
-        <app-flight-item
-          *ngFor="let f of flights; let i = index"
-          [flight]="f"
-        ></app-flight-item>
-        <form>
-          <button
-            type="button"
-            (click)="getAllFlights()"
-            mat-raised-button
-            color="primary"
-            style="margin-top: 10px"
+          </form>
+        </mat-tab>
+        <mat-tab label="Update Flight">
+          <form
+            #updateForm="ngForm"
+            (ngSubmit)="onUpdateFlight(updateForm.value)"
           >
-            All Flights
-          </button>
-          <button
-            type="button"
-            (click)="clearAllFlights()"
-            mat-raised-button
-            color="primary"
-            style="margin-top: 10px; margin-left: 10px"
-            [disabled]="!isFetched"
-          >
-            Clear Data
-          </button>
-        </form>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-tab>
-  <mat-tab label="User Data">
-    <mat-tab-group>
-      <mat-tab label="Add User">
-        <form #userForm="ngForm" (ngSubmit)="onAddUser(userForm.value)">
-          <div class="form">
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>Username</mat-label>
-              <input
-                matInput
-                type="text"
-                required
-                ngModel
-                name="username"
-              /> </mat-form-field
-            ><br />
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>FullName</mat-label>
-              <input
-                matInput
-                type="text"
-                required
-                ngModel
-                name="fullname"
-              /> </mat-form-field
-            ><br />
+            <div class="form">
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Flight ID</mat-label>
+                <input matInput type="number" required ngModel name="id" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>From Location</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  required
+                  ngModel
+                  name="fromLoc"
+                /> </mat-form-field
+              ><br />
 
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>password</mat-label>
-              <input
-                type="password"
-                matInput
-                required
-                ngModel
-                name="password"
-              /><br />
-            </mat-form-field>
-          </div>
-          <br />
-          <button
-            type="submit"
-            [disabled]="!userForm.valid"
-            mat-raised-button
-            color="primary"
-          >
-            Add User
-          </button>
-        </form>
-      </mat-tab>
-      <mat-tab label="Delete User">
-        <form #deluForm="ngForm" (ngSubmit)="onDeleteUser(deluForm.value)">
-          <div>
-            <mat-form-field appearance="outline" class="done">
-              <mat-label>User ID</mat-label>
-              <input matInput type="number" required ngModel name="id" />
-            </mat-form-field>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>To Location</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="toLoc"
+                /><br />
+              </mat-form-field>
 
-            <br />
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Name of the Flight</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="title"
+                /><br /> </mat-form-field
+              ><br />
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>is it Full??</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="isFull"
+                /><br />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Seats Available</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  required
+                  ngModel
+                  name="seats"
+                /><br /> </mat-form-field
+              ><br />
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Description</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="description"
+                /><br />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Company Name</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="companyName"
+                /><br /> </mat-form-field
+              ><br />
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Take Off Time</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="takeOffTime"
+                /><br />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Landing Time</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="landingTime"
+                /><br /> </mat-form-field
+              ><br />
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Ticket Price</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  ngModel
+                  name="ticketPrice"
+                /><br /> </mat-form-field
+              ><br />
+            </div>
             <br />
             <button
               type="submit"
-              [disabled]="!deluForm.valid"
+              mat-raised-button
+              color="primary"
+              [disabled]="!updateForm.valid"
+            >
+              Update Data
+            </button>
+          </form>
+        </mat-tab>
+        <mat-tab label="Delete Flight">
+          <form #posForm="ngForm" (ngSubmit)="onDeleteFlight(posForm.value)">
+            <div>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Flight ID</mat-label>
+                <input matInput type="number" required ngModel name="id" />
+              </mat-form-field>
+
+              <br />
+              <br />
+              <button
+                type="submit"
+                [disabled]="!posForm.valid"
+                mat-raised-button
+                color="primary"
+              >
+                Delete Flight
+              </button>
+            </div>
+          </form>
+        </mat-tab>
+        <mat-tab label="Get ALL Flights">
+          <app-flight-item
+            *ngFor="let f of flights; let i = index"
+            [flight]="f"
+          ></app-flight-item>
+          <form>
+            <button
+              type="button"
+              (click)="getAllFlights()"
+              mat-raised-button
+              color="primary"
+              style="margin-top: 10px"
+            >
+              All Flights
+            </button>
+            <button
+              type="button"
+              (click)="clearAllFlights()"
+              mat-raised-button
+              color="primary"
+              style="margin-top: 10px; margin-left: 10px"
+              [disabled]="!isFetched"
+            >
+              Clear Data
+            </button>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+    <mat-tab label="User Data">
+      <mat-tab-group>
+        <mat-tab label="Add User">
+          <form #userForm="ngForm" (ngSubmit)="onAddUser(userForm.value)">
+            <div class="form">
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>Username</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  required
+                  ngModel
+                  name="username"
+                /> </mat-form-field
+              ><br />
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>FullName</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  required
+                  ngModel
+                  name="fullname"
+                /> </mat-form-field
+              ><br />
+
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>password</mat-label>
+                <input
+                  type="password"
+                  matInput
+                  required
+                  ngModel
+                  name="password"
+                /><br />
+              </mat-form-field>
+            </div>
+            <br />
+            <button
+              type="submit"
+              [disabled]="!userForm.valid"
               mat-raised-button
               color="primary"
             >
-              Delete User
+              Add User
             </button>
-          </div>
-        </form>
-      </mat-tab>
-      <mat-tab label="Get Users Data">
-        <app-user-item
-          *ngFor="let f of users; let i = index"
-          [user]="f"
-        ></app-user-item>
-        <form>
-          <button
-            type="button"
-            (click)="getAllUsers()"
-            mat-raised-button
-            color="primary"
-            style="margin-top: 10px"
-          >
-            All User
-          </button>
-          <button
-            type="button"
-            (click)="clearAllUsers()"
-            mat-raised-button
-            color="primary"
-            style="margin-top: 10px; margin-left: 10px"
-            [disabled]="!isUserFetched"
-          >
-            Clear Data
-          </button>
-        </form>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-tab>
-</mat-tab-group>
+          </form>
+        </mat-tab>
+        <mat-tab label="Delete User">
+          <form #deluForm="ngForm" (ngSubmit)="onDeleteUser(deluForm.value)">
+            <div>
+              <mat-form-field appearance="outline" class="done">
+                <mat-label>User ID</mat-label>
+                <input matInput type="number" required ngModel name="id" />
+              </mat-form-field>
+
+              <br />
+              <br />
+              <button
+                type="submit"
+                [disabled]="!deluForm.valid"
+                mat-raised-button
+                color="primary"
+              >
+                Delete User
+              </button>
+            </div>
+          </form>
+        </mat-tab>
+        <mat-tab label="Get Users Data">
+          <app-user-item
+            *ngFor="let f of users; let i = index"
+            [user]="f"
+          ></app-user-item>
+          <form>
+            <button
+              type="button"
+              (click)="getAllUsers()"
+              mat-raised-button
+              color="primary"
+              style="margin-top: 10px"
+            >
+              All User
+            </button>
+            <button
+              type="button"
+              (click)="clearAllUsers()"
+              mat-raised-button
+              color="primary"
+              style="margin-top: 10px; margin-left: 10px"
+              [disabled]="!isUserFetched"
+            >
+              Clear Data
+            </button>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+  </mat-tab-group>
+</body>

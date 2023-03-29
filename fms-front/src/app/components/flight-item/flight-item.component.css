@@ -5,16 +5,36 @@
 }
 .flightContainer{
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    
   max-width: 1024px;
   border: 2px solid #9b7306;
+  border-radius: 8px;
   margin: 10px;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+.flightContainer:hover{
+  scale: 101%;
+}
+img{
+  width: 120px;
+  height: 120px;
+  border-radius: 10%;
+}
 .bookButton{
     margin-left: 20px;
+  border: none;
+  font-size: large;
+  padding: 5px 10px;
+  color:white;
+  cursor: pointer;
+  background-color: #003580;
+}
+.editButtone{
+  margin-left: 20px;
   border: none;
   font-size: large;
   padding: 5px 10px;

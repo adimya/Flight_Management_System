@@ -5,11 +5,24 @@
     justify-content: center;
     
   }
-  
+  .welcome{
+    color: white;
+    font-family: monospace;
+    padding: 20px;
+    margin-right: 80px;
+    
+  }
+  .page{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10%;
+    border: 4px solid rgb(255, 255, 255);
+  }
   .lContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
   }
   
   .lInput{

@@ -2,7 +2,7 @@
   <div class="navContainer">
     <span class="logo" routerLink="/home"
       ><h1 style="font-size: 30px">
-        <b>Flight Management System </b
+        <b>Book My Flights</b
         ><mat-icon style="margin-top: 3px"> flight</mat-icon>
       </h1>
     </span>
@@ -13,14 +13,18 @@
           " " + userName.charAt(0).toUpperCase() + userName.substring(1)
         }}</span
       >
-      <button
-        class="navButton"
-        routerLink="/bookPage"
-        [matBadge]="noOfBookings"
-      >
+      <button class="navButton" routerLink="/bookPage" mat-raised-button>
+        <!-- [matBadge]="noOfBookings" -->
         Bookings
       </button>
-      <button class="navButton" routerLink="/login">LogOut</button>
+      <button
+        class="navButton"
+        routerLink="/login"
+        (click)="onLogout()"
+        mat-raised-button
+      >
+        LogOut
+      </button>
     </div>
   </div>
 </div>

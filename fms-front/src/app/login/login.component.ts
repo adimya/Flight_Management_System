@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +13,14 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
   users: User[] = [];
+  noError: boolean = false;
   // isUser: string = '';
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +41,16 @@ export class LoginComponent implements OnInit {
         if (element.isAdmin === true) {
           this.router.navigate(['admin']);
         }
+        this.noError = true;
       }
+    }
+    if (this.noError === false) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Invalid UserName or Password',
+        footer: 'If new user, then try to Sign Up first',
+      });
     }
   }
 

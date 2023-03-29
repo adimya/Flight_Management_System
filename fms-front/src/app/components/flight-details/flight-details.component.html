@@ -1,11 +1,28 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="item">
-    <button class="backButton" routerLink="..">Back To Search</button>
-    <button class="confirmButton" (click)="deleteSeats()">
+    <button
+      class="backButton"
+      routerLink=".."
+      mat-raised-button
+      color="primary"
+    >
+      Back2Search
+    </button>
+    <button
+      class="confirmButton"
+      (click)="deleteSeats()"
+      mat-raised-button
+      color="primary"
+    >
       Confirm Booking
     </button>
     <div class="displayflex">
+      <div>
+        <img
+          src="https://seeklogo.com/images/I/indigo-logo-EDBB4B3C09-seeklogo.com.png"
+        />
+      </div>
       <div>
         <h1>{{ flights[0].title }}</h1>
         <h1>From Where: {{ flights[0].fromLoc }}</h1>
@@ -23,7 +40,12 @@
     <h4>
       {{ flights[0].description }}
     </h4>
-    <button class="confirmButton" (click)="deleteSeats()">
+    <button
+      class="confirmButton"
+      (click)="deleteSeats()"
+      mat-raised-button
+      color="primary"
+    >
       Confirm Booking
     </button>
   </div>

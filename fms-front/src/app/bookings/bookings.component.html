@@ -1,4 +1,12 @@
 <app-navbar></app-navbar>
+<div class="Bookingitem">
+  <div *ngIf="flights.length === 0">
+    <h1 style="color: white; font-size: 300%; margin-top: 30px">
+      No Flights Booked😡
+    </h1>
+  </div>
+</div>
+
 <div class="Bookingitem" *ngFor="let flight of flights">
   <div class="BookingContainer">
     <h2>{{ flight.title }}</h2>
@@ -9,6 +17,8 @@
       class="bookButton"
       *ngIf="flight.id !== undefined"
       (click)="deleteBooking(flight)"
+      mat-raised-button
+      color="primary"
     >
       Delete
     </button>

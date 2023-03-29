@@ -7,15 +7,37 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
+    title: 'Sign In | BookMyFlight',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    title: 'Sign In | BookMyFlight',
+  },
   {
     path: 'home',
     component: HomeComponent,
+    title: 'BookMyFlight',
   },
-  { path: 'home/:id', component: FlightDetailsComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'bookPage', component: BookingsComponent },
+  {
+    path: 'home/:id',
+    component: FlightDetailsComponent,
+    title: 'Flight Detail | BookMyFlight',
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    title: 'Admin Panel | BookMyFlight',
+  },
+  {
+    path: 'bookPage',
+    component: BookingsComponent,
+    title: 'Bookings Tab | BookMyFlight',
+  },
 ];
 
 @NgModule({

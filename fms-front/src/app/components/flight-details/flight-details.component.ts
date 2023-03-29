@@ -44,6 +44,7 @@ export class FlightDetailsComponent implements OnInit {
       landingTime: this.flights[0].landingTime,
       ticketPrice: this.flights[0].ticketPrice,
     });
+    
     console.log(this.flights[0].seats - 1);
     console.log(this.flights[0].id);
   }

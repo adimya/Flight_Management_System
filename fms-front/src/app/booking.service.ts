@@ -4,12 +4,26 @@ import { map } from 'rxjs/operators';
 import { Booking } from './booking.model';
 import { Flight } from './flight.model';
 import { FlightService } from './flights.service';
+import { UserService } from './user.service';
 @Injectable({ providedIn: 'root' })
-export class BookingService implements OnInit {
+export class BookingService {
   lenght = 0;
-  ngOnInit(): void {}
-  constructor(private http: HttpClient, private flightService: FlightService) {}
+  booking: number[] = [];
+  constructor(
+    private http: HttpClient,
+    private flightService: FlightService,
+    private userService: UserService
+  ) {}
+  giveBooking(): number[] {
+    const element = this.userService.user.bookedId;
+    this.booking = element.split(',').map(function (item) {
+      return parseInt(item, 10);
+    });
+    
+    return this.booking;
+  }
   getBooking() {
+    this.giveBooking();
     return this.http
       .get<{ [key: string]: Booking }>('http://localhost:8080/bookings')
       .pipe(
