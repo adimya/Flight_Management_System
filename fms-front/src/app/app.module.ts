@@ -15,6 +15,7 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { UserItemComponent } from './components/user-item/user-item.component';
+import { UpdateCompComponent } from './components/update-comp/update-comp.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UserItemComponent } from './components/user-item/user-item.component';
     AdminComponent,
     BookingsComponent,
     UserItemComponent,
+    UpdateCompComponent,
   ],
   imports: [
     BrowserModule,

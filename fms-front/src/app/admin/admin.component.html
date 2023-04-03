@@ -1,13 +1,13 @@
 <body>
   <mat-tab-group class="main">
     <mat-tab label="Flight Data">
-      <mat-tab-group>
+      <mat-tab-group [(selectedIndex)]="tabSelect">
         <mat-tab label="Add Flight">
           <form #postForm="ngForm" (ngSubmit)="onAddFlight(postForm.value)">
             <div class="form">
               <mat-form-field appearance="outline" class="done">
                 <mat-label>Flight ID</mat-label>
-                <input matInput type="number" required ngModel name="id" />
+                <input matInput type="number" ngModel name="id" />
               </mat-form-field>
               <mat-form-field appearance="outline" class="done">
                 <mat-label>From Location</mat-label>
@@ -130,158 +130,7 @@
             </button>
           </form>
         </mat-tab>
-        <mat-tab label="Update Flight">
-          <form
-            #updateForm="ngForm"
-            (ngSubmit)="onUpdateFlight(updateForm.value)"
-          >
-            <div class="form">
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Flight ID</mat-label>
-                <input matInput type="number" required ngModel name="id" />
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>From Location</mat-label>
-                <input
-                  matInput
-                  type="text"
-                  required
-                  ngModel
-                  name="fromLoc"
-                /> </mat-form-field
-              ><br />
 
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>To Location</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="toLoc"
-                /><br />
-              </mat-form-field>
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Name of the Flight</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="title"
-                /><br /> </mat-form-field
-              ><br />
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>is it Full??</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="isFull"
-                /><br />
-              </mat-form-field>
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Seats Available</mat-label>
-                <input
-                  type="number"
-                  matInput
-                  required
-                  ngModel
-                  name="seats"
-                /><br /> </mat-form-field
-              ><br />
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Description</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="description"
-                /><br />
-              </mat-form-field>
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Company Name</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="companyName"
-                /><br /> </mat-form-field
-              ><br />
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Take Off Time</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="takeOffTime"
-                /><br />
-              </mat-form-field>
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Landing Time</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="landingTime"
-                /><br /> </mat-form-field
-              ><br />
-
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Ticket Price</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  required
-                  ngModel
-                  name="ticketPrice"
-                /><br /> </mat-form-field
-              ><br />
-            </div>
-            <br />
-            <button
-              type="submit"
-              mat-raised-button
-              color="primary"
-              [disabled]="!updateForm.valid"
-            >
-              Update Data
-            </button>
-          </form>
-        </mat-tab>
-        <mat-tab label="Delete Flight">
-          <form #posForm="ngForm" (ngSubmit)="onDeleteFlight(posForm.value)">
-            <div>
-              <mat-form-field appearance="outline" class="done">
-                <mat-label>Flight ID</mat-label>
-                <input matInput type="number" required ngModel name="id" />
-              </mat-form-field>
-
-              <br />
-              <br />
-              <button
-                type="submit"
-                [disabled]="!posForm.valid"
-                mat-raised-button
-                color="primary"
-              >
-                Delete Flight
-              </button>
-            </div>
-          </form>
-        </mat-tab>
         <mat-tab label="Get ALL Flights">
           <app-flight-item
             *ngFor="let f of flights; let i = index"

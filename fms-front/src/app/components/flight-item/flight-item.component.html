@@ -3,9 +3,14 @@
   *ngIf="searchT === '' || flight.toLoc.toLowerCase().includes(searchT)"
 >
   <div class="flightContainer">
-    <div>
+    <div *ngIf="flight.title.includes('Indigo')">
       <img
         src="https://seeklogo.com/images/I/indigo-logo-EDBB4B3C09-seeklogo.com.png"
+      />
+    </div>
+    <div *ngIf="flight.title.includes('AirAsia')">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/AirAsia_New_Logo.svg/1024px-AirAsia_New_Logo.svg.png"
       />
     </div>
     <div>
@@ -35,6 +40,7 @@
         mat-raised-button
         color="primary"
         *ngIf="route"
+        (click)="goToUpdate()"
       >
         <mat-icon>edit</mat-icon>
       </button>
@@ -42,12 +48,16 @@
         class="bookButton"
         mat-raised-button
         color="primary"
-        *ngIf="route"
+        *ngIf="route && flight.id"
+        (click)="DeleteFlight({ id: flight.id })"
       >
         <mat-icon>delete</mat-icon>
       </button>
       <h2>{{ "Seats left: " + flight.seats }}</h2>
       <h2>{{ "price: " + flight.ticketPrice }}</h2>
     </div>
+  </div>
+  <div style="display: flex; flex-direction: row">
+    <app-update-comp *ngIf="updateIsTrue" [flight]="flight"></app-update-comp>
   </div>
 </div>

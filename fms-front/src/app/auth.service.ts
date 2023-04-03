@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   length = 0;
+  tabSelected = 0;
   constructor(private http: HttpClient) {}
 
   addNewUser(user: { username: string; password: string; fullname: string }) {
@@ -42,5 +43,10 @@ export class AuthService {
     this.http
       .delete(`http://localhost:8080/userdelete/${userdelte.id}`)
       .subscribe();
+  }
+
+  updateTab() {
+    this.tabSelected = 1;
+    console.log(this.tabSelected);
   }
 }

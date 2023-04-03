@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { FlightDetailsComponent } from './components/flight-details/flight-details.component';
+import { UpdateCompComponent } from './components/update-comp/update-comp.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
@@ -32,6 +33,11 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     title: 'Admin Panel | BookMyFlight',
+  },
+  {
+    path: 'update',
+    component: UpdateCompComponent,
+    title: 'Update Flight | BookMyFlight',
   },
   {
     path: 'bookPage',

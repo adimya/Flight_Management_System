@@ -13,3 +13,12 @@
     align-items: center;
     justify-content: space-between;
   }
+  .bookButton{
+    margin-left: 20px;
+  border: none;
+  font-size: large;
+  padding: 5px 10px;
+  color:white;
+  cursor: pointer;
+  background-color: #003580;
+}

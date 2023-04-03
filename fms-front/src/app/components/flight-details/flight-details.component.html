@@ -18,9 +18,14 @@
       Confirm Booking
     </button>
     <div class="displayflex">
-      <div>
+      <div *ngIf="flights[0].title.includes('Indigo')">
         <img
           src="https://seeklogo.com/images/I/indigo-logo-EDBB4B3C09-seeklogo.com.png"
+        />
+      </div>
+      <div *ngIf="flights[0].title.includes('AirAsia')">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/AirAsia_New_Logo.svg/1024px-AirAsia_New_Logo.svg.png"
         />
       </div>
       <div>

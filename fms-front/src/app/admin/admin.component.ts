@@ -16,13 +16,17 @@ export class AdminComponent implements OnInit {
   isFetched: boolean = false;
   users: User[] = [];
   isUserFetched: boolean = false;
+  tabSelect = 0;
   constructor(
     private http: HttpClient,
     private flightService: FlightService,
     private authService: AuthService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tabSelect = this.authService.tabSelected;
+    console.log(this.tabSelect);
+  }
 
   onAddFlight(flightData: {
     id: BigInteger;

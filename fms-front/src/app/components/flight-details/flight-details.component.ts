@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BookingService } from 'src/app/booking.service';
 import { Flight } from 'src/app/flight.model';
 import { FlightService } from 'src/app/flights.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-flight-details',
@@ -44,8 +45,13 @@ export class FlightDetailsComponent implements OnInit {
       landingTime: this.flights[0].landingTime,
       ticketPrice: this.flights[0].ticketPrice,
     });
-    
+
     console.log(this.flights[0].seats - 1);
     console.log(this.flights[0].id);
+    Swal.fire(
+      'Flight Booked',
+      'Click on Booking to see all booked flights!',
+      'success'
+    );
   }
 }
