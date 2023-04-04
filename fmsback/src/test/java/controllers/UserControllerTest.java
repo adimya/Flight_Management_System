@@ -36,11 +36,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.math.BigInteger;
-import java.sql.Time;
 
-import ninja.Context;
 import ninja.Result;
-import ninja.session.Session;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -48,57 +46,33 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import dao.ArticleDao;
+
 import dao.FlightDao;
-import models.FlightDto;
-import java.math.BigInteger;
+import dao.UserDao;
+
 
 @SuppressWarnings("deprecation")
 @RunWith(MockitoJUnitRunner.class)
-public class FlightControllerTest {
-	private Session session;
-	private Context context;
+public class UserControllerTest {
+	
     @Mock
-    private FlightDao flightDao;
+    private UserDao userDao;
     
-    private FlightController flightController;
+    private UserController userController;
     
     @Before
     public final void setupTest() {
-        flightController = new FlightController();
-        flightController.flightDao = flightDao;
+        userController = new UserController();
+        userController.userDao = userDao;
     }
     
 
-//    @Test
-//    public void postFlight() {
-//    	FlightDto flightDto=new FlightDto();
-//    	flightDto.setId(new BigInteger("3"));
-//    	flightDto.setToLoc("Abc");
-//    	flightDto.setCompanyName("abc");
-//    	flightDto.setDescription("abc");
-//    	flightDto.setIsFull(false);
-//    	flightDto.setLandingTime(111111);
-//    	flightDto.setTicketPrice(0);
-//    	flightDto.setTitle("abc");
-//    	flightDto.setTakeOffTime(111111);
-//    	flightDto.setFromLoc("adb");
-//    	flightDto.setSeats(0);
-//    	
-//    	
-//    	
-//        when(flightDao.addFlight(flightDto)).thenReturn(true);
-//        
-//        Result result = flightController.addNewFlight(context, flightDto);
-//        
-//        assertEquals(200, result.getStatusCode());
-//
-//    }
+
     
     @Test
     public void DeleteFlight() {
-    	when(flightDao.delete(new BigInteger("4"))).thenReturn(true);
-    	Result result = flightController. deleteFlight(new Long(4));
+    	when(userDao.deleteUser(new BigInteger("4"))).thenReturn(true);
+    	Result result = userController.deleteUser(new Long(4));
     	assertEquals(200, result.getStatusCode());
     	
     	
@@ -107,8 +81,8 @@ public class FlightControllerTest {
     @Test
     public void AllFlight() {
     	
-    	when(flightDao.displayAllFlights()).thenReturn(null);
-    	Result result = flightController.allFlights();
+    	when(userDao.displayAllUsers()).thenReturn(null);
+    	Result result = userController.allUsers();
     	assertEquals(200, result.getStatusCode());
     	
     	
